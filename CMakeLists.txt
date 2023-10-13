@@ -29,7 +29,6 @@ if(MSVC)
 endif()
 
 
-
 add_executable(train src/train.cpp)
 
 find_package(OpenMP REQUIRED)
@@ -45,3 +44,11 @@ find_package(Armadillo REQUIRED)
 
 target_compile_options(test PRIVATE -fopenmp)
 target_link_libraries(test PRIVATE OpenMP::OpenMP_CXX ${ARMADILLO_LIBRARIES})
+
+add_executable(analysis src/analysis.cpp)
+
+find_package(OpenMP REQUIRED)
+find_package(Armadillo REQUIRED)
+
+target_compile_options(analysis PRIVATE -fopenmp)
+target_link_libraries(analysis PRIVATE OpenMP::OpenMP_CXX ${ARMADILLO_LIBRARIES})
